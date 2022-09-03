@@ -97,11 +97,11 @@ CREATE TABLE IF NOT EXISTS `afvp_site2022`.`member` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `afvp_site2022`.`developer`
+-- Table `afvp_site2022`.`super_admin`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `afvp_site2022`.`developer` ;
+DROP TABLE IF EXISTS `afvp_site2022`.`super_admin` ;
 
-CREATE TABLE IF NOT EXISTS `afvp_site2022`.`developer` (
+CREATE TABLE IF NOT EXISTS `afvp_site2022`.`super_admin` (
   `id` INT NOT NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`id`)
@@ -159,7 +159,7 @@ CREATE UNIQUE INDEX `fk_member_user_idx` ON `afvp_site2022`.`member` (`user_id` 
 CREATE INDEX `fk_member_role_idx` ON `afvp_site2022`.`member` (`role_id` ASC);
 CREATE INDEX `fk_member_membership_type_idx` ON `afvp_site2022`.`member` (`membership_type_id` ASC);
 
-CREATE UNIQUE INDEX `fk_developer_user_idx` ON `afvp_site2022`.`developer` (`user_id` ASC);
+CREATE UNIQUE INDEX `fk_super_admin_user_idx` ON `afvp_site2022`.`super_admin` (`user_id` ASC);
 
 CREATE INDEX `fk_membership_member_idx` ON `afvp_site2022`.`membership` (`member_id` ASC);
 CREATE INDEX `fk_membership_membership_type_idx` ON `afvp_site2022`.`membership` (`membership_type_id` ASC);
@@ -179,8 +179,8 @@ ALTER TABLE `afvp_site2022`.`member`
   ADD CONSTRAINT `fk_member_role_idx` FOREIGN KEY (`role_id`) REFERENCES `afvp_site2022`.`role` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `fk_member_membership_type_idx` FOREIGN KEY (`membership_type_id`) REFERENCES `afvp_site2022`.`membership_type` (`id`) ON DELETE SET NULL;
 
-ALTER TABLE `afvp_site2022`.`developer`
-  ADD CONSTRAINT `fk_developer_user_idx` FOREIGN KEY (`user_id`) REFERENCES `afvp_site2022`.`user` (`id`) ON DELETE CASCADE;
+ALTER TABLE `afvp_site2022`.`super_admin`
+  ADD CONSTRAINT `fk_super_admin_user_idx` FOREIGN KEY (`user_id`) REFERENCES `afvp_site2022`.`user` (`id`) ON DELETE CASCADE;
 
 ALTER TABLE `afvp_site2022`.`membership`
   ADD CONSTRAINT `fk_membership_member_idx` FOREIGN KEY (`member_id`) REFERENCES `afvp_site2022`.`member` (`id`) ON DELETE CASCADE,

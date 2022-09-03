@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import 'reflect-metadata';
 
 import App from './config/Server';
-import appDB from './config/orm';
+import appDB from './config/orm/index';
 import env from './config/env';
 // import routes from './modules';
-import middlewares, { logger } from './middlewares';
+import middlewares, { logger } from './middlewares/index';
 
 // const application = new App(routes, middlewares);
 const application = new App(middlewares);
@@ -16,7 +17,7 @@ const application = new App(middlewares);
       .then(() => {
         console.log('Database has been initialized!');
       })
-      .catch((err) => {
+      .catch((err: any) => {
         console.error('Error during database initialization', err);
       });
     application.start(env.app_port as string);

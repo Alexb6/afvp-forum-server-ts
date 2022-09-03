@@ -1,13 +1,13 @@
 class AppError extends Error {
   statusCode: number;
-  errorLevel: string;
-  constructor(statusCode: number, message: string, errorLevel: string) {
+  level: string;
+  constructor(statusCode: number, message: string, level: string) {
     super(message);
 
     Object.setPrototypeOf(this, new.target.prototype);
     this.statusCode = statusCode;
     this.message = message;
-    this.errorLevel = errorLevel || 'error';
+    this.level = level || 'error' || 'warning';
   }
 }
 

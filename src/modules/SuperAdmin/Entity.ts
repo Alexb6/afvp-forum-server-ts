@@ -7,8 +7,8 @@ import {
 } from 'typeorm';
 import { User } from '../User/Entity';
 
-@Entity('developer')
-export class Developer extends BaseEntity {
+@Entity('super_admin')
+export class SuperAdmin extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 

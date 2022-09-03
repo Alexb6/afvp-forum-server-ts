@@ -1,3 +1,3 @@
 ## Server API for the AFVP forum
 
-Use of Node, Express, Typescipt, Sequelize & MySQL
+Use of Node, Express, Typescript, TypeORM & MySQL

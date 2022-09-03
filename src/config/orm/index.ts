@@ -11,6 +11,7 @@ const appDB = new DataSource({
   password: env.db_password,
   database: env.db_name,
   logging: false,
+  dropSchema: false,
   synchronize: false,
   migrationsRun: false,
   entities: [__dirname + '/../../modules/**/Entity.{js,ts}'],

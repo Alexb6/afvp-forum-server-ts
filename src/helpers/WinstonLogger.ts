@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { format, createLogger, transports } from 'winston';
-import 'winston-daily-rotate-file'; //a rotation of the log for 14 days
 import AppError from './AppError';
 
 const { combine, timestamp, printf, splat, json, errors, colorize, simple } =
@@ -30,11 +29,6 @@ class WinstonLogger {
         new transports.File({
           level: 'error',
           filename: 'src/logs/error.log'
-        }),
-        new transports.DailyRotateFile({
-          filename: 'src/logs/rotate-%DATE%.log',
-          datePattern: 'YYYY-MM-DD',
-          maxFiles: '14d'
         })
       ]
     });
