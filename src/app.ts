@@ -17,8 +17,8 @@ const application = new App(middlewares);
       .then(() => {
         console.log('Database has been initialized!');
       })
-      .catch((err: any) => {
-        console.error('Error during database initialization', err);
+      .catch((err) => {
+        console.error('Error during database initialization', err as Error);
       });
     application.start(env.app_port as string);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

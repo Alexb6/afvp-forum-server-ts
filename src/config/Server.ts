@@ -1,6 +1,7 @@
 import errorHandler from '../middlewares/errorHandler';
 import env from './env';
 import { Server } from '@overnightjs/core';
+import routes from '../modules';
 
 class App extends Server {
   constructor(
@@ -10,7 +11,7 @@ class App extends Server {
     super();
 
     this.initializeMiddlewares(middlewares);
-    // super.addControllers(routes);
+    super.addControllers(routes);
     this.initializeErrorHandler();
   }
 

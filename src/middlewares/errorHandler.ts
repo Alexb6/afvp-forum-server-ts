@@ -9,11 +9,11 @@ const errorHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  const { message, errorLevel } = err;
+  const { message, level } = err;
   const statusCode = err.statusCode ? err.statusCode : 500;
 
   logger.log(statusCode, err);
-  res.status(statusCode).json({ statusCode, message, errorLevel });
+  res.status(statusCode).json({ statusCode, message, level });
 };
 
 export default errorHandler;
